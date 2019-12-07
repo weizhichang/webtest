@@ -461,6 +461,11 @@ header .main ul li a:active{
     width:90%;
     margin:0 auto;
     clear: both;
+    padding: 3rem 0;
+    padding-left: 17rem;
+    /* background-color: #fff; */
+    border-top:2px solid #eee;
+    clear: both;
 }
 
 .footer-content .brand{

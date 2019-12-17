@@ -5,9 +5,12 @@
 html,body{
     font-size: 100%;
     color:#222;
-    overflow-x:hidden;
+    /* overflow-x:hidden; */
     /* 强制取消横向滚动条，解决页面可以左右拖动问题 */
+    /* min-width: 801px; */
+
 }
+
 
 ::selection{
     background-color: #b3d4fc;
@@ -53,7 +56,7 @@ li{
     display: block !important;
 }
 
-/* 不占用代码空间 */
+/*占用代码空间 */
 .invisible{
     visibility: hidden;
 }
@@ -105,18 +108,23 @@ a:active{
 /* 网站头部 */
 header{
     width:100%;
-} 
+}
 
 header .top{
     line-height: 3rem;
-    padding: 0 1.5rem;
+    padding: 0 1rem;
     color:#fff;
     background: #555;
     border-bottom: 1px #ecc000 solid;
+	display: -webkit-flex;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
 }
 
 header .top .tel{
-    float: left;
+   /* float: left; */
+
 }
 
 header .top ul{
@@ -143,14 +151,53 @@ header .top ul li a:hover {
     color:#ff9900;
 }
 
+/* 移动端顶部导航 */
+@media only screen and (max-width:50rem){
+    header .top ul li a{
+        padding:0 1rem
+    }
+}
+
+@media only screen and (min-width:30.0625rem) and (max-width:48.75rem){
+    header .top{
+		justify-content: flex-end;
+	}
+	header .top .tel{
+		display: none;
+	}
+    header .top ul li:nth-child(3),
+    header .top ul li:nth-child(4){
+        display: none;
+    }
+}
+
+@media only screen and (max-width:30rem){
+  header .top{
+  	justify-content: flex-end;
+  }
+  header .top .tel{
+  	display: none;
+  }
+  header .top ul li:nth-child(3),
+  header .top ul li:nth-child(4){
+      display: none;
+  }
+}
+
 /* 主导航的样式 */
 header .main{
    padding: 0;
+   display: -webkit-flex;
+   display: flex;
+   flex-wrap: nowrap;
+   justify-content: space-between;
 }
 
 header .main .brand{
-    float: left;
-    padding: 1rem 1.5rem;
+   /* float: left; */
+    padding: 0 1.5rem;
+	display: flex;
+	align-items: center;
 }
 
 header .main ul{
@@ -173,7 +220,14 @@ header .main ul li a{
 }
 
 /* 移动端导航栏 */
-@media only screen and (max-width:50em){
+@media only screen and (max-width:50rem){
+
+	header .main{
+	   display: flex;
+	   flex-wrap: wrap;
+	   justify-content:center;
+	}
+
     header .main .brand{
         float:none;
         display: block;
@@ -195,28 +249,8 @@ header .main ul li a{
     }
 }
 
+@media only screen and (max-width:30rem){
 
-
-
-
-@media only screen and (max-width:50em){
-    header .top ul li a{
-        padding:0 1rem
-    }
-}
-
-@media only screen and (min-width:30.0625em) and (max-width:50em){
-}
-
-@media only screen and (max-width:30em){
-    header .top .tel,
-    header .top ul li:nth-child(3),
-    header .top ul li:nth-child(4){
-        display: none;
-    }
-}
-
-@media only screen and (max-width:30em){
     header .main ul li{
         line-height: 3rem;
     }
@@ -227,7 +261,7 @@ header .main ul li a{
 
     header .main ul li a{
         font-weight:normal;
-        padding:0 0.5rem
+        padding:0 0.5rem;
     }
 }
 
@@ -255,10 +289,17 @@ header .main ul li a:active{
     max-width: 100%;
     margin:0 auto;
     font-size :1.5rem;
+	display: flex;
+	flex-wrap:nowrap;
+	justify-content: space-between;
+}
+
+.trans-datas{
+    display: inline-flex;
 }
 
 .trans-data{
-    float: left;
+    /* float: left; */
     padding: 1rem;
     text-align: left;
 }
@@ -293,8 +334,8 @@ header .main ul li a:active{
 }
 
 /* 移动端交易信息 */
-@media only screen and (max-width:50em){
-    
+@media only screen and (max-width:50rem){
+
     .trans-data{
         padding:1rem 0.5rem;
     }
@@ -317,7 +358,17 @@ header .main ul li a:active{
     }
 }
 
-@media only screen and (max-width:30em){
+@media only screen and (max-width:30rem){
+
+	.trans-content{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.trans-datas{
+		display: block;
+		}
 
     .transaction{
         padding: 0.5rem 0;
@@ -343,11 +394,13 @@ header .main ul li a:active{
     width:90%;
     margin:2rem auto;
     font-size:0;
+    /* 去掉间隙 */
 }
 
 .feature .item{
+    box-sizing: border-box;
     display:inline-block;
-    width:calc(33.333333333% - 3rem);
+    width:calc(33.333333333% - 1rem);
     padding:1rem;
     font-size: 1.4rem;
     background-color: #fff;
@@ -378,8 +431,8 @@ header .main ul li a:active{
 }
 
 /* 移动端平台特点 */
-@media only screen and (min-width:
-30.0625em) and (max-width:50em){
+/* @media only screen and (min-width:
+30.0625em) and (max-width:50rem){
 
     .feature .item h3,
     .feature .item p{
@@ -392,9 +445,9 @@ header .main ul li a:active{
     .feature .item p{
         font-size:1.2rem;
     }
-}
+} */
 
-@media only screen and (max-width:30em){
+@media only screen and (max-width:30rem){
 
     .feature{
         width: 96%;
@@ -419,10 +472,12 @@ header .main ul li a:active{
     /* line-height: 3rem; */
     background-color: #fff;
     box-shadow: 0 0 4px #ccc;
+	/* 使单行文本垂直居中 */
+	height: 3rem;
+	line-height: 3rem;
 }
 
 .notice a{
-    /* float:left; */
     display: inline-block;
     width: 70%;
     margin-left: 2rem;
@@ -454,14 +509,14 @@ header .main ul li a:active{
 }
 
 /* 最新公告媒体查询 */
-@media only screen and (max-width:30em){
+@media only screen and (max-width:30rem){
 
     .notice{
         width: 96%;
         margin: 1rem auto;
         font-size: 1.2rem;
     }
-    
+
     .notice a{
         margin-left: 1rem;
     }
@@ -469,8 +524,10 @@ header .main ul li a:active{
     .notice a span{
         display: none;
     }
+	.notice a.more{
+		    margin-right: 1rem;
+	}
 }
-
 /* 产品列表 */
 .product{
     width: 90%;
@@ -479,11 +536,10 @@ header .main ul li a:active{
     background-color: #f5f9fa;
     border-top:2px solid #ff9900;
     box-shadow: 0 0 4px #ccc;
-    clear: both;
+    display: flex;
 }
 
 .product h2 {
-    float: left;
     width: 20%;
     margin-top:3rem;
     text-align: center;
@@ -503,16 +559,14 @@ header .main ul li a:active{
 }
 
 .product .product-content{
-    float: right;
     width: 79.5%;
     border-left: 1px solid #eee;
     background-color: #fff;
-    /* clear: both; */
 }
 
 .product .product-content .item{
     width:100%;
-    clear: both;
+    display: flex;
 }
 
 .product .product-content .item+.item{
@@ -520,7 +574,6 @@ header .main ul li a:active{
 }
 
 .product .product-content .item h3{
-    float: left;
     width:30%;
     margin: 1.5rem 0;
     font-size: 1.4rem;
@@ -543,16 +596,14 @@ header .main ul li a:active{
 }
 
 .product .product-content .item .info{
-    float: left;
-    width: 48%; 
+    width: 48%;
     padding: 1rem;
     border-left: 1px solid #eee;
     border-right: 1px solid #eee;
-    font-size: 14px;
+    font-size: 1rem;
 }
 
 .product .product-content .item .info p{
-    /* float: left; */
     display: inline-block;
     text-align:center;
     width: 56%;
@@ -575,7 +626,6 @@ header .main ul li a:active{
 }
 
 .product .product-content .item .buy{
-    float: left;
     width:cal(22%-4.4rem);
     padding:1rem;
 }
@@ -602,6 +652,63 @@ header .main ul li a:active{
     background-color: #ccc !important;
     cursor: not-allowed;
 }
+
+/* 移动端产品信息页 */
+
+@media only screen and (max-width:50rem){
+
+    .product{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product h2{
+        width: auto;
+        margin: 1rem auto;
+        display: -webkit-box;
+    }
+
+    .product h2 em{
+        display: inline;
+    }
+
+    .product .product-content{
+        width: auto;
+        border-left: 1px solid #eee;
+        background-color: #fff;
+    }
+    
+    .product .product-content .item .info{
+        width: 48%;
+        padding: 1rem;
+        border-left: 1px solid #eee;
+        border-right: 1px solid #eee;
+        font-size: 1rem;
+        display: contents;
+    }
+
+    .product .product-content .item .info p{
+        display: grid;
+    }
+}
+
+@media only screen and (max-width:30rem){
+
+    .product h2 {
+        
+    }
+
+  .product h2.product-name{
+    margin: auto;
+    }
+
+  .product h2 em{
+
+  }
+
+
+}
+
 /* 底部导航 */
 .footer{
     padding: 3rem 0;
@@ -611,14 +718,11 @@ header .main ul li a:active{
 }
 
 .footer-content{
-    width:90%;
-    margin:0 auto;
-    clear: both;
     padding: 3rem 0;
-    padding-left: 17rem;
     /* background-color: #fff; */
     border-top:2px solid #eee;
     clear: both;
+    text-align: center;
 }
 
 .footer-content .brand{
@@ -633,8 +737,10 @@ header .main ul li a:active{
 }
 
 .footer-content ul{
-    float: left;
     width:15%;
+    display: inline-block;
+    vertical-align: top;
+    /* 让元素顶部对齐 */
 }
 
 .footer-content ul li{
@@ -646,6 +752,26 @@ header .main ul li a:active{
     font-size: 1.6rem;
     line-height: 3rem;
 }
+
+/* 移动端底部导航 */
+@media only screen and (max-width:50rem){
+
+    .footer-content{
+    padding: 1rem 0;
+    }
+
+    .footer-content ul li{
+        font-size: 1.2rem;
+        line-height: inherit;
+    }
+}
+
+@media only screen and (max-width:30rem){
+    .footer-content{
+        display: none;
+        }
+}
+
 
 footer{
     width: 100%;
